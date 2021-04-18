@@ -9,20 +9,22 @@
 
 def calculate_max_profit(price_list):
     buying_price = price_list[0]
-    possible_profits = [0]
+    max_profit = 0
     for index in range(1, len(price_list)):
         current_price = price_list[index]
         if current_price < buying_price:
             buying_price = current_price
         else:
-            possible_profits.append(current_price - buying_price)
-    profit = max(possible_profits)
-    if profit == 0:
+            current_profit = current_price - buying_price
+            if current_profit > max_profit:
+                max_profit = current_profit
+
+    if max_profit == 0:
         print('Profit not possible.')
     else:
-        print(profit)
+        print(max_profit)
 
 
 if __name__ == '__main__':
-    stock_prices = [40, 2, 1, 20, 1, 10]
+    stock_prices = [0, 0, 0]
     calculate_max_profit(stock_prices)
