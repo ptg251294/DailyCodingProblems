@@ -22,9 +22,9 @@ def max_values_of_sub_array(int_arr, k):
 
 
 if __name__ == '__main__':
-    input_arr = input().split(',')
+    input_arr = input('Enter numbers separated by comma (,): ').split(',')
     int_arr = []
-    for i in range(len(input_arr) - 1):
-        int_arr.append(int(input_arr[i]))
-    k = int(input())
+    for index in range(len(input_arr) - 1):
+        int_arr.append(int(input_arr[index]))
+    k = int(input('Enter k: '))
     max_values_of_sub_array(int_arr, k)
