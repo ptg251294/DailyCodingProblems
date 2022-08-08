@@ -6,22 +6,17 @@
 #
 # You can assume the list has at least three integers.
 
-def product_of_negative():
-    if sorted_list[1] < 0:
-        test = (sorted_list[0] * sorted_list[1])
-        return test
+def negative_pair_product():
+    return (sorted_list[0] * sorted_list[1]) if sorted_list[1] < 0 else None
 
 
-def call_if_pair_of_negative():
-    x = a * sorted_list[input_list_length - 1]
-    y = b * sorted_list[input_list_length - 3]
-    if y < x:
-        print(x)
-    else:
-        print(y)
+def call_if_pair_of_negative(least_negative_pair_product, max_positive_pair_product):
+    x = least_negative_pair_product * sorted_list[input_list_length - 1]
+    y = max_positive_pair_product * sorted_list[input_list_length - 3]
+    print(x) if y < x else print(y)
 
 
-def product_of_positives():
+def positives_pair_product():
     return sorted_list[input_list_length - 1] * sorted_list[input_list_length - 2]
 
 
@@ -29,15 +24,13 @@ def call_if_single_negative():
     print(sorted_list[input_list_length - 1] * sorted_list[input_list_length - 2] * sorted_list[input_list_length - 3])
 
 
-global a, b
-
 if __name__ == '__main__':
     input_list = [-19, -15, 3, 25, 9, 12]
     sorted_list = sorted(input_list)
     input_list_length = (len(sorted_list))
-    a = product_of_negative()
-    b = product_of_positives()
+    a = negative_pair_product()
+    b = positives_pair_product()
     if sorted_list[1] < 0:
-        call_if_pair_of_negative()
+        call_if_pair_of_negative(a, b)
     else:
         call_if_single_negative()
