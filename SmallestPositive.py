@@ -16,14 +16,14 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 
 
 def compute_smallest_positive(a: list) -> int:
-    sorted_a = sorted(set(a))
+    sorted_a = sorted(a)
     answer = 1
     for index, number in enumerate(sorted_a):
         if number > 0:
             current = sorted_a[index]
             if index < len(sorted_a) - 1:
                 next = sorted_a[index + 1]
-                if current + 1 == next:
+                if current + 1 == next or current == next:
                     continue
                 else:
                     answer = current + 1
