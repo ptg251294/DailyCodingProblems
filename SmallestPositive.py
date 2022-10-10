@@ -16,7 +16,7 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 
 
 def compute_smallest_positive(a: list) -> int:
-    sorted_a = sorted(a)
+    sorted_a = sorted(set(a))
     answer = 1
     for index, number in enumerate(sorted_a):
         if number > 0:
@@ -34,6 +34,6 @@ def compute_smallest_positive(a: list) -> int:
 
 
 if __name__ == '__main__':
-    A = [1, 2, 3, 4]
+    A = [1, 3, 6, 4, 1, 2]
     result = compute_smallest_positive(A)
     print(f'{result} is the smallest positive number')
